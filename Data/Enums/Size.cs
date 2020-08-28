@@ -1,5 +1,5 @@
 ﻿/*
- * Author: Zachery Brunner
+ * Author: Patrick Moll
  * Class name: Size.cs
  * Purpose: Class used to represent sizes through an enumeration
  */
@@ -15,4 +15,5 @@ namespace BleakwindBuffet.Data.Enums
         Medium,
         Large
     }
+
 }
