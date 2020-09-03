@@ -9,7 +9,7 @@ using System.Dynamic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakwindBuffetData.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     public class SailorSoda
     {
