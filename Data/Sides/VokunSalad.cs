@@ -19,12 +19,13 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                if (Size == Size.Small)
-                    return 0.93;
-                else if (Size == Size.Medium)
-                    return 1.28;
-                else
-                    return 1.82;
+                switch (Size)
+                {
+                    case Size.Small: return 0.93;
+                    case Size.Medium: return 1.28;
+                    case Size.Large: return 1.82;
+                    default: throw new NotImplementedException($"Unknown size {Size}");
+                }
             }
         }
 
@@ -35,12 +36,13 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                if (Size == Size.Small)
-                    return 41;
-                else if (Size == Size.Medium)
-                    return 52;
-                else
-                    return 73;
+                switch (Size)
+                {
+                    case Size.Small: return 41;
+                    case Size.Medium: return 52;
+                    case Size.Large: return 73;
+                    default: throw new NotImplementedException($"Unknown size {Size}");
+                }
             }
         }
 

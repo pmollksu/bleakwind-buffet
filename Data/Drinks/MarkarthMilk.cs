@@ -19,12 +19,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                if (Size == Size.Small)
-                    return 1.05;
-                else if (Size == Size.Medium)
-                    return 1.11;
-                else
-                    return 1.22;
+                switch (Size)
+                {
+                    case Size.Small: return 1.05;
+                    case Size.Medium: return 1.11;
+                    case Size.Large: return 1.22;
+                    default: throw new NotImplementedException($"Unknown size {Size}");
+                }
             }
         }
 
@@ -35,14 +36,16 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                if (Size == Size.Small)
-                    return 56;
-                else if (Size == Size.Medium)
-                    return 72;
-                else
-                    return 93;
+                switch (Size)
+                {
+                    case Size.Small: return 56;
+                    case Size.Medium: return 72;
+                    case Size.Large: return 93;
+                    default: throw new NotImplementedException($"Unknown size {Size}");
+
+                }             
             }
-        }
+}
 
         /// <summary>
         /// Gets the size of the drink using Size enum
