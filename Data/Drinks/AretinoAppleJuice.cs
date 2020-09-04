@@ -77,7 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>[Size] Arentino Apple Juice</returns>
         public override string ToString()
         {
-            return Size + " Arentino Apple Juice";
+            return Size + " Aretino Apple Juice";
         }
     }
 }

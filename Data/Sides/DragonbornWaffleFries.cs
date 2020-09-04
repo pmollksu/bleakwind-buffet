@@ -10,7 +10,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    class DragonbornWaffleFries
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// Gets the price of the side
@@ -50,6 +50,18 @@ namespace BleakwindBuffet.Data.Sides
         /// Gets the size of the side using Size enum
         /// </summary>
         public Size Size { get; set; } = Size.Small;
+
+        /// <summary>
+        /// Gets the list of ingredients to hold(empty because no special instructions)
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+                return instructions;
+            }
+        }
 
         /// <summary>
         /// Returns the size and name of the side

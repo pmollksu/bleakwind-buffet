@@ -52,12 +52,24 @@ namespace BleakwindBuffet.Data.Sides
         public Size Size { get; set; } = Size.Small;
 
         /// <summary>
+        /// Gets the list of ingredients to hold(empty because no special instructions)
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+                return instructions;
+            }
+        }
+
+        /// <summary>
         /// Returns the size and name of the side
         /// </summary>
         /// <returns>[Size] Mad Otar Grits</returns>
         public override string ToString()
         {
-            return Size + "  Mad Otar Grits";
+            return Size + " Mad Otar Grits";
         }
     }
 }
