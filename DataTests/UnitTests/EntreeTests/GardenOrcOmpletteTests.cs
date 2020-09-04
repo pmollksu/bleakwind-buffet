@@ -111,7 +111,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!gorc.Mushrooms) Assert.Contains("Hold mushrooms", gorc.SpecialInstructions);
             if (!gorc.Tomato) Assert.Contains("Hold tomato", gorc.SpecialInstructions);
             if (!gorc.Cheddar) Assert.Contains("Hold cheddar", gorc.SpecialInstructions);
-            if (gorc.Cheddar && gorc.Mushrooms && gorc.Tomato && gorc.Cheddar) Assert.Empty(gorc.SpecialInstructions);
+            if (includeCheddar && includeMushrooms && includeTomato && includeCheddar) Assert.Empty(gorc.SpecialInstructions);
         }
 
         [Fact]
