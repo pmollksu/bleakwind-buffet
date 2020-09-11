@@ -10,23 +10,19 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater
+    public class WarriorWater: Drink, IOrderItem
     {
         /// <summary>
         /// Gets the price of the drink
         /// </summary>
-        public double Price => 0.00;
+        public override double Price => 0.00;
 
         /// <summary>
         /// Gets the calories of the drink
         /// </summary>
-        public uint Calories => 0;
+        public override uint Calories => 0;
         
-        /// <summary>
-        /// Gets the size of the drink using Size enum
-        /// </summary>
-        public Size Size { get; set; } = Size.Small;
-
+        
         /// <summary>
         /// Getsthe customer ice preference
         /// </summary>
@@ -40,7 +36,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Adds drink instructions to a special instruction list
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

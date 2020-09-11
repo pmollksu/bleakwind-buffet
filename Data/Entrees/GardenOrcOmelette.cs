@@ -9,17 +9,17 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette: Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the omelette
         /// </summary>
-        public double Price => 4.57;
+        public override double Price => 4.57;
 
         /// <summary>
         /// Gets the calories of the omelette
         /// </summary>
-        public uint Calories => 404;
+        public override uint Calories => 404;
 
         /// <summary>
         /// Gets the broccoli preference
@@ -41,7 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public bool Cheddar { get; set; } = true;
 
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
