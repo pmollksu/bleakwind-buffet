@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="PointOfSale.MenuComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Name="cancelOrder" Margin="0,0,50,10" FontWeight="Bold" Background="IndianRed">
+            Cancel Order
+        </Button>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" TextAlignment="Center" FontWeight="Bold" FontSize="25">
+           Add to Order 
+        </TextBlock>
+        <TextBlock Grid.Row="1" TextAlignment="Center" FontWeight="Bold" FontSize="20">
+            Entrees
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" FontWeight="Bold" FontSize="20">
+            Drinks
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2"  TextAlignment="Center" FontWeight="Bold" FontSize="20">
+            Sides
+        </TextBlock>
+        
+        <Button Click="customizeBB" Name="briarhearBurgerButton" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Briarheart Burger
+        </Button>
+        <Button Click="customizeDD" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Double Dragur
+        </Button>
+        <Button Click="customizeTT" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Thalmor Triple
+        </Button>
+        <Button Click="customizeSS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Smokehouse Skeleton
+        </Button>
+        <Button Click="customizeGOC" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Garden Orc Omelette
+        </Button>
+        <Button Click="customizePP" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Philly Poacher
+        </Button>
+        <Button Click="customizeThugsT" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            Thugs T-Bone
+        </Button>
+
+        <Button Click="customizeSailSoda" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Sailor's Soda
+        </Button>
+        <Button Click="customizeMM" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Markarth Milk
+        </Button>
+        <Button Click="customizeAAJ" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Aretino Apple Juice
+        </Button>
+        <Button Click="customizeCC" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Candlehearth Coffee
+        </Button>
+        <Button Click="customizeWW" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Warrior Water
+        </Button>
+
+        <Button Click="customizeVS" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Vokun Salad
+        </Button>
+        <Button Click="customizeFM" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Fried Miraak
+        </Button>
+        <Button Click="customizeMOG" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="180" Height="45">
+            Mad Otar Grits
+        </Button>
+        <Button Click="customizeDW" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="180" Height="45" >
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Dragonborn Waffle
+            Fries</TextBlock>
+        </Button>
+    </Grid>
+</UserControl>
