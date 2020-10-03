@@ -21,56 +21,145 @@ namespace BleakwindBuffet.Data.Entrees
         /// Gets the calories of the burger
         /// </summary>
         public override uint Calories => 943;
-
+        private bool ketchup = true;
         /// <summary>
         /// Gets the ketchup preference
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get => ketchup;
+            set
+            {
+                ketchup = value;
+                InvokePropertyChanged("Ketchup");
+            }
+        }
 
+        private bool bun = true;
         /// <summary>
         /// Gets the bun preference
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun
+        {
+            get => bun;
+            set
+            {
+                bun = value;
+                InvokePropertyChanged("Bun");
+            }
+        }
 
+        private bool mustard = true;
         /// <summary>
         /// Gets the mustard preference
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get => mustard;
+            set
+            {
+                mustard = value;
+                InvokePropertyChanged("Mustard");
+            }
+        }
 
+        private bool cheese = true;
         /// <summary>
         /// Gets the cheese preference
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get => cheese;
+            set
+            {
+                cheese = value;
+                InvokePropertyChanged("Cheese");
+            }
+        }
 
+        private bool pickle = true;
         /// <summary>
         /// Gets the pickle preference
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get => pickle;
+            set
+            {
+                pickle = value;
+                InvokePropertyChanged("Pickle");
+            }
+        }
 
+        private bool tomato = true;
         /// <summary>
         /// Gets the tomato preference
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get => tomato;
+            set
+            {
+                tomato = value;
+                InvokePropertyChanged("Tomato");
+            }
+        }
 
+        private bool lettuce = true;
         /// <summary>
         /// Gets the lettuce preference
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce
+        {
+            get => lettuce;
+            set
+            {
+                lettuce = value;
+                InvokePropertyChanged("Lettuce");
+            }
+        }
 
+        private bool mayo = true;
         /// <summary>
         /// Gets the mayo preference
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo
+        {
+            get => mayo;
+            set
+            {
+                mayo = value;
+                InvokePropertyChanged("Mayo");
+            }
+        }
 
+        private bool bacon = true;
         /// <summary>
         /// Gets the bacon preference
         /// </summary>
-        public bool Bacon { get; set; } = true;
+        public bool Bacon
+        {
+            get => bacon;
+            set
+            {
+                bacon = value;
+                InvokePropertyChanged("Bacon");
+            }
+        }
 
+        private bool egg = true;
         /// <summary>
         /// Gets the egg preference
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg
+        {
+            get => egg;
+            set
+            {
+                egg = value;
+                InvokePropertyChanged("Egg");
+            }
+        }
 
 
         /// <summary>

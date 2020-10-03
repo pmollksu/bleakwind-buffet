@@ -6,6 +6,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
@@ -13,20 +14,47 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// A base class representing the common properties of sides
         /// </summary>
-        public abstract class Side
+        public abstract class Side: INotifyPropertyChanged
         {
-            /// <summary>
-            /// The size of the side
-            /// </summary>
-            public virtual Size Size { get; set; }
 
-            /// <summary>
-            /// The price of the side
-            /// </summary>
-            /// <value>
-            /// In US Dollars
-            /// </value>
-            public abstract double Price { get; }
+        /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>     
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+
+        private Size size = Size.Small;
+         /// <summary>
+         /// The size of the side
+         /// </summary>
+        public virtual Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                InvokePropertyChanged("Size");
+                InvokePropertyChanged("Price");
+                InvokePropertyChanged("Calories");
+            }
+        }
+
+        /// <summary>
+        /// Helper method used by derived class to invoke property changed for all properties of side items
+        /// </summary>
+        /// <param name="name">the name of the property</param>
+        protected void InvokePropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        /// <summary>
+        /// The price of the side
+        /// </summary>
+        /// <value>
+        /// In US Dollars
+        /// </value>
+        public abstract double Price { get; }
 
             /// <summary>
             /// The calories of the side

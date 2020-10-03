@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var ww = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(ww);
+        }
+
+        [Fact]
         public void ShouldBeADrink()
         {
             WarriorWater ww = new WarriorWater();
@@ -45,8 +52,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.False(ww.Ice);
             ww.Ice = true;
             Assert.True(ww.Ice);
+        }
 
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var ww = new WarriorWater();
 
+            Assert.PropertyChanged(ww, "Ice", () =>
+            {
+                ww.Ice = true;
+            });
+
+            Assert.PropertyChanged(ww, "Ice", () =>
+            {
+                ww.Ice = false;
+            });
         }
 
         [Fact]
@@ -61,6 +82,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(Size.Small, ww.Size);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var ww = new WarriorWater();
+
+            Assert.PropertyChanged(ww, "Size", () =>
+            {
+                ww.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(ww, "Size", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(ww, "Size", () =>
+            {
+                ww.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 0.00)]
         [InlineData(Size.Medium, 0.00)]
@@ -72,6 +114,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(price, ww.Price);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var ww = new WarriorWater();
+
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 0)]
         [InlineData(Size.Medium, 0)]
@@ -81,6 +144,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater ww = new WarriorWater();
             ww.Size = size;
             Assert.Equal(cal, ww.Calories);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var ww = new WarriorWater();
+
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Size = Size.Large;
+            });
         }
 
         [Theory]

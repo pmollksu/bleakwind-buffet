@@ -15,6 +15,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(aj);
+        }
+
+        [Fact]
         public void ShouldBeADrink()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
@@ -46,6 +53,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var aj = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = true;
+            });
+
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetSize()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
@@ -55,6 +78,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(Size.Medium, aj.Size);
             aj.Size = Size.Small;
             Assert.Equal(Size.Small, aj.Size);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var aj = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Large;
+            });
         }
 
         [Theory]
@@ -69,6 +113,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var aj = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 44)]
         [InlineData(Size.Medium, 88)]
@@ -78,6 +143,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Size = size;
             Assert.Equal(cal, aj.Calories);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var aj = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Large;
+            });
         }
 
         [Theory]
@@ -101,5 +187,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aj.Size = size;
             Assert.Equal(name, aj.ToString());
         }
+
     }
 }

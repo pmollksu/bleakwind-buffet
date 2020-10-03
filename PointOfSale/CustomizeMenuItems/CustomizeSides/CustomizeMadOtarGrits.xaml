@@ -19,10 +19,10 @@
             Choose size for Mad Otar Grits
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <ComboBox Name="Size" Width="100" FontSize="20" SelectedIndex="0">
-                <ComboBoxItem>Small</ComboBoxItem>
-                <ComboBoxItem>Medium</ComboBoxItem>
-                <ComboBoxItem>Large</ComboBoxItem>
+            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged" Width="100" FontSize="20" SelectedIndex="0">
+                <ComboBoxItem x:Name="Small">Small</ComboBoxItem>
+                <ComboBoxItem x:Name="Medium">Medium</ComboBoxItem>
+                <ComboBoxItem x:Name="Large">Large</ComboBoxItem>
             </ComboBox>
         </StackPanel>
         <DockPanel Grid.Column="1" Grid.Row="1">

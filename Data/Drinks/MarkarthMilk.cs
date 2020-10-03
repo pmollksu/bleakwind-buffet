@@ -5,12 +5,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class MarkarthMilk: Drink, IOrderItem
+    public class MarkarthMilk: Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the drink
@@ -47,11 +48,19 @@ namespace BleakwindBuffet.Data.Drinks
             }
 }
 
-
+        private bool ice = false;
         /// <summary>
         /// Gets the customer ice preference
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                ice = value;
+                InvokePropertyChanged("Ice");
+            }
+        }
 
         /// <summary>
         /// Adds ice to list if customer wants ice

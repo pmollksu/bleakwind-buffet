@@ -5,12 +5,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class FriedMiraak: Side, IOrderItem
+    public class FriedMiraak: Side, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the side

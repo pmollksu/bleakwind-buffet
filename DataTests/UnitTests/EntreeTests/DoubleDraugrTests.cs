@@ -13,6 +13,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(dd);
+        }
+        [Fact]
         public void ShouldBeAnEntree()
         {
             DoubleDraugr dd = new DoubleDraugr();
@@ -85,6 +91,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingBunNotifiesBunProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Bun", () =>
+            {
+                dd.Bun = true;
+            });
+
+            Assert.PropertyChanged(dd, "Bun", () =>
+            {
+                dd.Bun = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetKetchup()
         {
             DoubleDraugr dd = new DoubleDraugr();
@@ -92,6 +114,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(dd.Ketchup);
             dd.Ketchup = true;
             Assert.True(dd.Ketchup);
+        }
+
+        [Fact]
+        public void ChangingKetchupNotifiesKetchupProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Ketchup", () =>
+            {
+                dd.Ketchup = true;
+            });
+
+            Assert.PropertyChanged(dd, "Ketchup", () =>
+            {
+                dd.Ketchup = false;
+            });
         }
 
         [Fact]
@@ -105,6 +143,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingMustardNotifiesMustardProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Mustard", () =>
+            {
+                dd.Mustard = true;
+            });
+
+            Assert.PropertyChanged(dd, "Mustard", () =>
+            {
+                dd.Mustard = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetPickle()
         {
             DoubleDraugr dd = new DoubleDraugr();
@@ -112,6 +166,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(dd.Pickle);
             dd.Pickle = true;
             Assert.True(dd.Pickle);
+        }
+
+        [Fact]
+        public void ChangingPickleNotifiesPickleProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Pickle", () =>
+            {
+                dd.Pickle = true;
+            });
+
+            Assert.PropertyChanged(dd, "Pickle", () =>
+            {
+                dd.Pickle = false;
+            });
         }
 
         [Fact]
@@ -125,6 +195,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingCheeseNotifiesCheeseProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Cheese", () =>
+            {
+                dd.Cheese = true;
+            });
+
+            Assert.PropertyChanged(dd, "Cheese", () =>
+            {
+                dd.Cheese = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetTomato()
         {
             DoubleDraugr dd = new DoubleDraugr();
@@ -132,6 +218,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(dd.Tomato);
             dd.Tomato = true;
             Assert.True(dd.Tomato);
+        }
+
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Tomato", () =>
+            {
+                dd.Tomato = true;
+            });
+
+            Assert.PropertyChanged(dd, "Tomato", () =>
+            {
+                dd.Tomato = false;
+            });
         }
 
         [Fact]
@@ -145,6 +247,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingLettuceNotifiesLettuceProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Lettuce", () =>
+            {
+                dd.Lettuce = true;
+            });
+
+            Assert.PropertyChanged(dd, "Lettuce", () =>
+            {
+                dd.Lettuce = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetMayo()
         {
             DoubleDraugr dd = new DoubleDraugr();
@@ -152,6 +270,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(dd.Mayo);
             dd.Mayo = true;
             Assert.True(dd.Mayo);
+        }
+
+        [Fact]
+        public void ChangingMayoNotifiesMayoProperty()
+        {
+            var dd = new DoubleDraugr();
+
+            Assert.PropertyChanged(dd, "Mayo", () =>
+            {
+                dd.Mayo = true;
+            });
+
+            Assert.PropertyChanged(dd, "Mayo", () =>
+            {
+                dd.Mayo = false;
+            });
         }
 
         [Fact]

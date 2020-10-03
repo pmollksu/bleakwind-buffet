@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Patrick Moll
+ * Class name: CustomizeWarriorWater.xaml.cs
+ * Purpose: Class used to set parent and return click event to main screen for particular menu item
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
 {
@@ -22,6 +29,8 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
         public CustomizeWarriorWater(Order ord)
         {
             InitializeComponent();
+            WarriorWater ww = new WarriorWater();
+            DataContext = ww;
             parent = ord;
         }
 
@@ -33,6 +42,19 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
         public void doneClick(object sender, RoutedEventArgs e)
         {
             parent.menuBorder.Child = new MenuComponent(parent);
+        }
+
+        private void Size_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataContext is WarriorWater ww)
+            {
+                foreach (ComboBoxItem s in e.AddedItems)
+                {
+                    if (s.Name == "Small") ww.Size = Size.Small;
+                    if (s.Name == "Medium") ww.Size = Size.Medium;
+                    if (s.Name == "Large") ww.Size = Size.Large;
+                }
+            }
         }
     }
 }

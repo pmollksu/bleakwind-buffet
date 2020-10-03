@@ -19,31 +19,31 @@
             Customize Briarheart Burger
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <CheckBox Name="Bun" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="BunCheck" IsChecked="{Binding Path=Bun}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Bun
             </CheckBox>
-            <CheckBox Name="Ketchup" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="KetchupCheck" IsChecked="{Binding Path=Ketchup}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Ketchup
             </CheckBox>
-            <CheckBox Name="Mustard" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="MustardBox" IsChecked="{Binding Path=Mustard}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Mustard
             </CheckBox>
-            <CheckBox Name="Pickle" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="PickleCheck" IsChecked="{Binding Path=Pickle}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Pickle
             </CheckBox>
-            <CheckBox Name="Cheese" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="CheeseCheck" IsChecked="{Binding Path=Cheese}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>

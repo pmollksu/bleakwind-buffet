@@ -14,6 +14,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var fm = new FriedMiraak();
+            Assert.IsAssignableFrom<IOrderItem>(fm);
+        }
+
+        [Fact]
         public void ShouldBeASide()
         {
             FriedMiraak fm = new FriedMiraak();
@@ -41,6 +48,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var fm = new FriedMiraak();
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
             FriedMiraak fm = new FriedMiraak();
@@ -58,6 +86,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(price, fm.Price);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var fm = new FriedMiraak();
+
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 151)]
         [InlineData(Size.Medium, 236)]
@@ -68,6 +117,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             fm.Size = size;
             Assert.Equal(calories, fm.Calories);
 
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var fm = new FriedMiraak();
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Large;
+            });
         }
 
         [Theory]

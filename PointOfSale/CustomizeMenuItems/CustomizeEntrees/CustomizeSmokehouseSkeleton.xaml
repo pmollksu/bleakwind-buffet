@@ -19,25 +19,25 @@
             Customize Smokehouse Skeleton
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <CheckBox Name="Sausage" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="SausageCheck" IsChecked="{Binding Path=SausageLink}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Sausage
             </CheckBox>
-            <CheckBox Name="Eggs" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="EggsCheck" IsChecked="{Binding Path=Egg}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Eggs
             </CheckBox>
-            <CheckBox Name="HashBrowns" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="HashBrownsCheck" IsChecked="{Binding Path=HashBrowns}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Hash Browns
             </CheckBox>
-            <CheckBox Name="Pancakes" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="PancakesCheck" IsChecked="{Binding Path=Pancake}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>

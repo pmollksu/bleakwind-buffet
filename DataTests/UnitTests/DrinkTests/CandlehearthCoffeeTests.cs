@@ -14,6 +14,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var cc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(cc);
+        }
+
+        [Fact]
         public void ShouldBeADrink()
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
@@ -59,6 +66,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = true;
+            });
+
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
@@ -69,6 +92,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ChangingDecafNotifiesDecafProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Decaf", () =>
+            {
+                cc.Decaf = true;
+            });
+
+            Assert.PropertyChanged(cc, "Decaf", () =>
+            {
+                cc.Decaf = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetRoomForCream()
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
@@ -76,6 +115,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.True(cc.RoomForCream);
             cc.RoomForCream = false;
             Assert.False(cc.RoomForCream);
+        }
+
+        [Fact]
+        public void ChangingRoomForCreamNotifiesRoomForCreamProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "RoomForCream", () =>
+            {
+                cc.RoomForCream = true;
+            });
+
+            Assert.PropertyChanged(cc, "RoomForCream", () =>
+            {
+                cc.RoomForCream = false;
+            });
         }
 
         [Fact]
@@ -90,6 +145,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(Size.Small, cc.Size);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 0.75)]
         [InlineData(Size.Medium, 1.25)]
@@ -99,6 +175,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee cc = new CandlehearthCoffee();
             cc.Size = size;
             Assert.Equal(price, cc.Price);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Price", () =>
+            {
+                cc.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(cc, "Price", () =>
+            {
+                cc.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(cc, "Price", () =>
+            {
+                cc.Size = Size.Large;
+            });
         }
 
         [Theory]
@@ -111,6 +208,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             cc.Size = size;
             Assert.Equal(cal, cc.Calories);
 
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Calories", () =>
+            {
+                cc.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(cc, "Calories", () =>
+            {
+                cc.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(cc, "Calories", () =>
+            {
+                cc.Size = Size.Large;
+            });
         }
 
         [Theory]

@@ -19,19 +19,19 @@
             Customize Philly Poacher
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <CheckBox Name="Sirloin" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="SirloinCheck" IsChecked="{Binding Path=Sirloin}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Sirloin
             </CheckBox>
-            <CheckBox Name="Onions" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="OnionsCheck" IsChecked="{Binding Path=Onion}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Onions
             </CheckBox>
-            <CheckBox Name="Roll" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="RollCheck" IsChecked="{Binding Path=Roll}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>

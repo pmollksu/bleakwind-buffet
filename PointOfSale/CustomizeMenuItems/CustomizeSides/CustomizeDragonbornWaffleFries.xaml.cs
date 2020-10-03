@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Patrick Moll
+ * Class name: CustomizeDragonbornWaffleFries.xaml.cs
+ * Purpose: Class used to set parent and return click event to main screen for particular menu item
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeSides
 {
@@ -22,6 +29,8 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
         public CustomizeDragonbornWaffleFries(Order ord)
         {
             InitializeComponent();
+            DragonbornWaffleFries wf = new DragonbornWaffleFries();
+            DataContext = wf;
             parent = ord;
         }
 
@@ -33,6 +42,25 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
         public void doneClick(object sender, RoutedEventArgs e)
         {
             parent.menuBorder.Child = new MenuComponent(parent);
+        }
+
+        /// <summary>
+        /// Binds the ComboBox items for size to the size enum
+        /// </summary>
+        /// <param name="sender">used for event</param>
+        /// <param name="e">used for selection change event</param>
+        private void Size_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataContext is DragonbornWaffleFries wf)
+            {
+                foreach (ComboBoxItem s in e.AddedItems)
+                {
+                    if (s.Name == "Small") wf.Size = Size.Small;
+                    if (s.Name == "Medium") wf.Size = Size.Medium;
+                    if (s.Name == "Large") wf.Size = Size.Large;
+                }
+            }
+
         }
     }
 }

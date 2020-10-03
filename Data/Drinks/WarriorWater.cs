@@ -5,12 +5,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater: Drink, IOrderItem
+    public class WarriorWater: Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the drink
@@ -21,17 +22,35 @@ namespace BleakwindBuffet.Data.Drinks
         /// Gets the calories of the drink
         /// </summary>
         public override uint Calories => 0;
-        
-        
+
+
+        private bool ice = true;
         /// <summary>
         /// Getsthe customer ice preference
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get => ice;
+            set
+            {
+                ice = value;
+                InvokePropertyChanged("Ice");
+            }
+        }
 
+        private bool lemon = false;
         /// <summary>
         /// Gets the lemon preference 
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get => lemon;
+            set
+            {
+                lemon = value;
+                InvokePropertyChanged("Lemon");
+            }
+        }
 
         /// <summary>
         /// Adds drink instructions to a special instruction list

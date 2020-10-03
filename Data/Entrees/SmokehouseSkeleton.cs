@@ -21,25 +21,62 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public override uint Calories => 602;
 
+
+        private bool sausagelink = true;
         /// <summary>
         /// Gets the Sausage Link preference
         /// </summary>
-        public bool SausageLink { get; set; } = true;
+        public bool SausageLink
+        {
+            get => sausagelink;
+            set
+            {
+                sausagelink = value;
+                InvokePropertyChanged("SausageLink");
+            }
+        }
 
+        private bool egg = true;
         /// <summary>
         /// Gets the egg preference
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg
+        {
+            get => egg;
+            set
+            {
+                egg = value;
+                InvokePropertyChanged("Egg");
+            }
+        }
 
+        private bool hashbrowns = true;
         /// <summary>
         /// Gets the hashbrowns preference
         /// </summary>
-        public bool HashBrowns { get; set; } = true;
+        public bool HashBrowns
+        {
+            get => hashbrowns;
+            set
+            {
+                hashbrowns = value;
+                InvokePropertyChanged("HashBrowns");
+            }
+        }
 
+        private bool pancake = true;
         /// <summary>
         /// Gets the pancake preference
         /// </summary>
-        public bool Pancake { get; set; } = true;
+        public bool Pancake
+        {
+            get => pancake;
+            set
+            {
+                pancake = value;
+                InvokePropertyChanged("Pancake");
+            }
+        }
 
         /// <summary>
         /// Gets the list of ingredients to hold

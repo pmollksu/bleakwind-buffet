@@ -5,11 +5,12 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger: Entree, IOrderItem
+    public class BriarheartBurger: Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the burger
@@ -21,30 +22,75 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public override uint Calories => 743;
 
+        private bool ketchup = true;
         /// <summary>
         /// Gets the ketchup preference
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get => ketchup;
+            set
+            {
+                ketchup = value;
+                InvokePropertyChanged("Ketchup");
+            }
+        }
 
+        private bool bun = true;
         /// <summary>
         /// Gets the bun preference
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun
+        {
+            get => bun;
+            set
+            {
+                bun = value;
+                InvokePropertyChanged("Bun");
+            }
+        }
 
+        private bool mustard = true;
         /// <summary>
         /// Gets the mustard preference
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get => mustard;
+            set
+            {
+                mustard = value;
+                InvokePropertyChanged("Mustard");
+            }
+        }
 
+        private bool cheese = true;
         /// <summary>
         /// Gets the cheese preference
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get => cheese;
+            set
+            {
+                cheese = value;
+                InvokePropertyChanged("Cheese");
+            }
+        }
 
+        private bool pickle = true;
         /// <summary>
         /// Gets the pickle preference
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get => pickle;
+            set
+            {
+                pickle = value;
+                InvokePropertyChanged("Pickle");
+            }
+        }
 
         /// <summary>
         /// Gets the list of ingredients to hold

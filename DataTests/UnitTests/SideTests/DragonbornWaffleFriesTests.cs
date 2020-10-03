@@ -14,6 +14,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var wf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(wf);
+        }
+
+        [Fact]
         public void ShouldBeASide()
         {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
@@ -41,6 +48,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var wf = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(wf, "Size", () =>
+            {
+                wf.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(wf, "Size", () =>
+            {
+                wf.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(wf, "Size", () =>
+            {
+                wf.Size = Size.Large;
+            });
+        }
+
+        [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
@@ -58,6 +86,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(price, wf.Price);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var wf = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(wf, "Price", () =>
+            {
+                wf.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(wf, "Price", () =>
+            {
+                wf.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(wf, "Price", () =>
+            {
+                wf.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 77)]
         [InlineData(Size.Medium, 89)]
@@ -67,6 +116,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             DragonbornWaffleFries wf = new DragonbornWaffleFries();
             wf.Size = size;
             Assert.Equal(calories, wf.Calories);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var wf = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(wf, "Calories", () =>
+            {
+                wf.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(wf, "Calories", () =>
+            {
+                wf.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(wf, "Calories", () =>
+            {
+                wf.Size = Size.Large;
+            });
         }
 
         [Theory]

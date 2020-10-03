@@ -14,6 +14,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class VokunSaladTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var vs = new VokunSalad();
+            Assert.IsAssignableFrom<IOrderItem>(vs);
+        }
+
+        [Fact]
         public void ShouldBeASide()
         {
             VokunSalad vs = new VokunSalad();
@@ -41,6 +48,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var vs = new VokunSalad();
+
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Large;
+            });
+        }
+
+        [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
             VokunSalad vs = new VokunSalad();
@@ -58,6 +86,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(price, vs.Price);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var vs = new VokunSalad();
+
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 41)]
         [InlineData(Size.Medium, 52)]
@@ -67,6 +116,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             VokunSalad vs = new VokunSalad();
             vs.Size = size;
             Assert.Equal(calories, vs.Calories);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var vs = new VokunSalad();
+
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Large;
+            });
         }
 
         [Theory]

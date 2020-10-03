@@ -5,11 +5,12 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher: Entree, IOrderItem
+    public class PhillyPoacher: Entree, IOrderItem, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -22,20 +23,48 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public override uint Calories => 784;
 
+        private bool sirloin = true;
         /// <summary>
         /// Gets the sirloin preference
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin
+        {
+            get => sirloin;
+            set
+            {
+                sirloin = value;
+                InvokePropertyChanged("Sirloin");
+            }
+        }
 
+
+        private bool onion = true;
         /// <summary>
         /// Gets the onion preference
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion
+        {
+            get => onion;
+            set
+            {
+                onion = value;
+                InvokePropertyChanged("Onion");
+            }
+        }
 
+        private bool roll = true;
         /// <summary>
         /// Gets the roll preference
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll
+        {
+            get => roll;
+            set
+            {
+                roll = value;
+                InvokePropertyChanged("Roll");
+            }
+        }
 
         /// <summary>
         /// Gets the list of ingredients to hold

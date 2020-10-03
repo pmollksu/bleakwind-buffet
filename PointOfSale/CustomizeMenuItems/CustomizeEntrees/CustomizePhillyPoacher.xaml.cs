@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Patrick Moll
+ * Class name: CustomizePhillyPoacher.xaml.cs
+ * Purpose: Class used to set parent and return click event to main screen for particular menu item
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -11,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
 {
@@ -23,6 +29,8 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
         public CustomizePhillyPoacher(Order ord)
         {
             InitializeComponent();
+            PhillyPoacher pp = new PhillyPoacher();
+            DataContext = pp;
             parent = ord;
         }
 

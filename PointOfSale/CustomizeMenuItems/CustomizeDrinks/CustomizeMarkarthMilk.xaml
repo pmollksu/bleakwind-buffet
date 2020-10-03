@@ -19,7 +19,7 @@
             Customize Markarth Milk
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <CheckBox Name="Ice" IsChecked="False" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="IceCheck"  IsChecked="{Binding Path=Ice}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
@@ -27,10 +27,10 @@
             </CheckBox>
         </StackPanel>
         <StackPanel  Grid.Column="0" Grid.Row="1" Margin="20"  >
-            <ComboBox Name="Size" Width="100" FontSize="20" SelectedIndex="0">
-                <ComboBoxItem>Small</ComboBoxItem>
-                <ComboBoxItem>Medium</ComboBoxItem>
-                <ComboBoxItem>Large</ComboBoxItem>
+            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged" Width="100" FontSize="20" SelectedIndex="0">
+                <ComboBoxItem x:Name="Small">Small</ComboBoxItem>
+                <ComboBoxItem x:Name="Medium">Medium</ComboBoxItem>
+                <ComboBoxItem x:Name="Large">Large</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 

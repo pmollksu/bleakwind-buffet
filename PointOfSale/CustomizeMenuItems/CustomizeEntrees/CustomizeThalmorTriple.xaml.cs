@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Patrick Moll
+ * Class name: CustomizeThalmorTriple.xaml.cs
+ * Purpose: Class used to set parent and return click event to main screen for particular menu item
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
 {
@@ -22,6 +28,8 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
         public CustomizeThalmorTriple(Order ord)
         {
             InitializeComponent();
+            ThalmorTriple thalt = new ThalmorTriple();
+            DataContext = thalt;
             parent = ord;
         }
 

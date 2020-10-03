@@ -13,6 +13,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var gorc = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(gorc);
+        }
+
+        [Fact]
         public void ShouldBeAnEntree()
         {
             GardenOrcOmelette gorc = new GardenOrcOmelette();
@@ -58,6 +65,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingBroccoliNotifiesBroccoliProperty()
+        {
+            var gorc = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(gorc, "Broccoli", () =>
+            {
+                gorc.Broccoli = true;
+            });
+
+            Assert.PropertyChanged(gorc, "Broccoli", () =>
+            {
+                gorc.Broccoli = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetMushrooms()
         {
             GardenOrcOmelette gorc = new GardenOrcOmelette();
@@ -65,6 +88,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(gorc.Mushrooms);
             gorc.Mushrooms = true;
             Assert.True(gorc.Mushrooms);
+        }
+
+        [Fact]
+        public void ChangingMushroomsNotifiesMushroomsProperty()
+        {
+            var gorc = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(gorc, "Mushrooms", () =>
+            {
+                gorc.Mushrooms = true;
+            });
+
+            Assert.PropertyChanged(gorc, "Mushrooms", () =>
+            {
+                gorc.Mushrooms = false;
+            });
         }
 
         [Fact]
@@ -78,6 +117,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var gorc = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(gorc, "Tomato", () =>
+            {
+                gorc.Tomato = true;
+            });
+
+            Assert.PropertyChanged(gorc, "Tomato", () =>
+            {
+                gorc.Tomato = false;
+            });
+        }
+
+
+        [Fact]
         public void ShouldBeAbleToSetCheddar()
         {
             GardenOrcOmelette gorc = new GardenOrcOmelette();
@@ -85,6 +141,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(gorc.Cheddar);
             gorc.Cheddar = true;
             Assert.True(gorc.Cheddar);
+        }
+
+        [Fact]
+        public void ChangingCheddarNotifiesCheddarProperty()
+        {
+            var gorc = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(gorc, "Cheddar", () =>
+            {
+                gorc.Cheddar = true;
+            });
+
+            Assert.PropertyChanged(gorc, "Cheddar", () =>
+            {
+                gorc.Cheddar = false;
+            });
         }
 
         [Fact]

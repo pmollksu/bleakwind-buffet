@@ -19,25 +19,25 @@
             Customize Garden Orc Omelette
         </TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="20" >
-            <CheckBox Name="Broccoli" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="BroccoliCheck" IsChecked="{Binding Path=Broccoli}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Broccoli
             </CheckBox>
-            <CheckBox Name="Mushrooms" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="MushroomsCheck" IsChecked="{Binding Path=Mushrooms}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Mushrooms
             </CheckBox>
-            <CheckBox Name="Tomato" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="TomatoCheck" IsChecked="{Binding Path=Tomato}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>
                 Tomato
             </CheckBox>
-            <CheckBox Name="Cheddar" IsChecked="True" FontWeight="Medium" Margin="0,5">
+            <CheckBox Name="CheddarCheck" IsChecked="{Binding Path=Cheddar}" FontWeight="Medium" Margin="0,5">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
                 </CheckBox.LayoutTransform>

@@ -5,11 +5,12 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette: Entree, IOrderItem
+    public class GardenOrcOmelette: Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the omelette
@@ -21,25 +22,61 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public override uint Calories => 404;
 
+        private bool broccoli = true;
         /// <summary>
         /// Gets the broccoli preference
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        public bool Broccoli
+        {
+            get => broccoli;
+            set
+            {
+                broccoli = value;
+                InvokePropertyChanged("Broccoli");
+            }
+        }
 
+        private bool mushrooms = true;
         /// <summary>
         /// Gets the mushrooms preference
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        public bool Mushrooms
+        {
+            get => mushrooms;
+            set
+            {
+                mushrooms = value;
+                InvokePropertyChanged("Mushrooms");
+            }
+        }
 
+        private bool tomato = true;
         /// <summary>
         /// Gets the tomato preference
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get => tomato;
+            set
+            {
+                tomato = value;
+                InvokePropertyChanged("Tomato");
+            }
+        }
 
+        private bool cheddar = true;
         /// <summary>
         /// Gets the cheddar preference
         /// </summary>
-        public bool Cheddar { get; set; } = true;
+        public bool Cheddar
+        {
+            get => cheddar;
+            set
+            {
+                cheddar = value;
+                InvokePropertyChanged("Cheddar");
+            }
+        }
 
         public override List<string> SpecialInstructions
         {

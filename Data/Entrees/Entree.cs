@@ -5,15 +5,32 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+
     /// <summary>
     /// An abstract base class that defines common properties for entrees
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree: INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
+        /// Helper method used by derived class to invoke property changed for all properties of entree items
+        /// </summary>
+        /// <param name="name">the name of the property</param>
+        protected void InvokePropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         /// <summary>
         /// The price of the entree
         /// </summary>

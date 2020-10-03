@@ -14,6 +14,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+        [Fact]
         public void ShouldBeAnEntree()
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
@@ -24,7 +30,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldInlcudeSausageByDefault()
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
-            Assert.True(ss.SausageLink);
+            Assert.True(ss.HashBrowns);
         }
 
         [Fact]
@@ -59,6 +65,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingSausageLinkNotifiesSausageLinkProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = true;
+            });
+
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetEgg()
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
@@ -66,6 +88,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(ss.Egg);
             ss.Egg = true;
             Assert.True(ss.Egg);
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = true;
+            });
+
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = false;
+            });
         }
 
         [Fact]
@@ -79,6 +117,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ChangingHashBrownsNotifiesHashBrownsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = true;
+            });
+
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAbleToSetPancake()
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
@@ -86,6 +140,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.False(ss.Pancake);
             ss.Pancake = true;
             Assert.True(ss.Pancake);
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = true;
+            });
+
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = false;
+            });
         }
 
         [Fact]

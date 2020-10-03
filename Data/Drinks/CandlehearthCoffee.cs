@@ -5,12 +5,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee: Drink, IOrderItem
+    public class CandlehearthCoffee: Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the drink
@@ -46,22 +47,51 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-    
 
+
+        private bool ice = false;
         /// <summary>
         /// Gets the customer ice preference
         /// </summary>
-        public bool Ice { get; set; } = false;
+        public bool Ice 
+        {
+            get => ice;
+            set 
+            {
+                ice = value;
+                InvokePropertyChanged("Ice");
+            } 
+        }
 
+        private bool roomforcream = false;
         /// <summary>
         /// If the customer wants room for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get => roomforcream;
+            set
+            {
+                roomforcream = value;
+                InvokePropertyChanged("RoomForCream");
+            }
+        }
 
+
+        private bool decaf = false;
         /// <summary>
         /// If the customer wants decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get => decaf;
+            set
+            {
+                decaf = value;
+                InvokePropertyChanged("Decaf");
+            }
+        }
+
 
         /// <summary>
         /// Adds ice to list if customer wants ice

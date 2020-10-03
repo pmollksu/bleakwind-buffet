@@ -14,6 +14,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void ShouldBeAssignabletoAbstractIOrderItemClass()
+        {
+            var mad = new MadOtarGrits();
+            Assert.IsAssignableFrom<IOrderItem>(mad);
+        }
+
+        [Fact]
         public void ShouldBeASide()
         {
             MadOtarGrits mad = new MadOtarGrits();
@@ -41,6 +48,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var mad = new MadOtarGrits();
+
+            Assert.PropertyChanged(mad, "Size", () =>
+            {
+                mad.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(mad, "Size", () =>
+            {
+                mad.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mad, "Size", () =>
+            {
+                mad.Size = Size.Large;
+            });
+        }
+
+        [Fact]
         public void ShouldReturnCorrectStringOnSpecialInstructions()
         {
             MadOtarGrits mad = new MadOtarGrits();
@@ -58,6 +86,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(price, mad.Price);
         }
 
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var mad = new MadOtarGrits();
+
+            Assert.PropertyChanged(mad, "Price", () =>
+            {
+                mad.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(mad, "Price", () =>
+            {
+                mad.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mad, "Price", () =>
+            {
+                mad.Size = Size.Large;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small, 105)]
         [InlineData(Size.Medium, 142)]
@@ -67,6 +116,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             MadOtarGrits mad = new MadOtarGrits();
             mad.Size = size;
             Assert.Equal(calories, mad.Calories);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var mad = new MadOtarGrits();
+
+            Assert.PropertyChanged(mad, "Calories", () =>
+            {
+                mad.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(mad, "Calories", () =>
+            {
+                mad.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mad, "Calories", () =>
+            {
+                mad.Size = Size.Large;
+            });
         }
 
         [Theory]
