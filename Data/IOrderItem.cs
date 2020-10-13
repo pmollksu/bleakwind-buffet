@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
@@ -12,8 +13,9 @@ namespace BleakwindBuffet.Data
     /// <summary>
     /// An interface that is used to represent properties of all menu items
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem: INotifyPropertyChanged
     {
+        
         /// <summary>
         /// Gets the price of the item
         /// </summary>

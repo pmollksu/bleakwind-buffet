@@ -32,6 +32,7 @@ namespace BleakwindBuffet.Data.Drinks
                 InvokePropertyChanged("Size");
                 InvokePropertyChanged("Price");
                 InvokePropertyChanged("Calories");
+                InvokePropertyChanged("MockToString");
             }
         }
 
@@ -61,5 +62,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special instructions to prepare the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get;}
+
+        /// <summary>
+        /// gets toString of drink and is used to invoke property changed
+        /// </summary>
+        public virtual string MockToString
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
     }
 }

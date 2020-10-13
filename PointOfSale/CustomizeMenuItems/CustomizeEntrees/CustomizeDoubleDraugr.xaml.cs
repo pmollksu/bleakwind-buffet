@@ -24,11 +24,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeDoubleDraugr : UserControl
     {
-        Order parent;
-        public CustomizeDoubleDraugr(Order ord)
+        OrderComponent parent;
+        public CustomizeDoubleDraugr(OrderComponent ord,DoubleDraugr dd)
         {
             InitializeComponent();
-            DoubleDraugr dd = new DoubleDraugr();
             DataContext = dd;
             parent = ord;
         }

@@ -10,12 +10,12 @@ using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
-{   
-        /// <summary>
-        /// A base class representing the common properties of sides
-        /// </summary>
-        public abstract class Side: INotifyPropertyChanged
-        {
+{
+    /// <summary>
+    /// A base class representing the common properties of sides
+    /// </summary>
+    public abstract class Side : INotifyPropertyChanged
+    {
 
         /// <summary>
         /// Event triggered when a property changes
@@ -24,9 +24,9 @@ namespace BleakwindBuffet.Data.Sides
 
 
         private Size size = Size.Small;
-         /// <summary>
-         /// The size of the side
-         /// </summary>
+        /// <summary>
+        /// The size of the side
+        /// </summary>
         public virtual Size Size
         {
             get => size;
@@ -36,6 +36,7 @@ namespace BleakwindBuffet.Data.Sides
                 InvokePropertyChanged("Size");
                 InvokePropertyChanged("Price");
                 InvokePropertyChanged("Calories");
+                InvokePropertyChanged("MockToString");
             }
         }
 
@@ -56,14 +57,26 @@ namespace BleakwindBuffet.Data.Sides
         /// </value>
         public abstract double Price { get; }
 
-            /// <summary>
-            /// The calories of the side
-            /// </summary>
-            public abstract uint Calories { get; }
+        /// <summary>
+        /// The calories of the side
+        /// </summary>
+        public abstract uint Calories { get; }
 
-            /// <summary>
-            /// Special instructions to prepare the side
-            /// </summary>
-            public abstract List<string> SpecialInstructions { get; }
+        /// <summary>
+        /// Special instructions to prepare the side
+        /// </summary>
+        public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Gets toString of side and is used to invoke property changed
+        /// </summary>
+        public virtual string MockToString
+        {
+           get
+            {
+                return this.ToString();
+            }
         }
+
+    }
 }

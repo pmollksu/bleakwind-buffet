@@ -24,11 +24,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeGardenOrcOmelette : UserControl
     {
-        Order parent;
-        public CustomizeGardenOrcOmelette(Order ord)
+        OrderComponent parent;
+        public CustomizeGardenOrcOmelette(OrderComponent ord, GardenOrcOmelette gorc)
         {
             InitializeComponent();
-            GardenOrcOmelette gorc = new GardenOrcOmelette();
             DataContext = gorc;
             parent = ord;
         }

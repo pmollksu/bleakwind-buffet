@@ -8,11 +8,19 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ShouldBeAssignableFromINotifyPropertyChanged()
+        {
+            var mad = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mad);
+        }
+
         [Fact]
         public void ShouldBeAssignabletoAbstractIOrderItemClass()
         {

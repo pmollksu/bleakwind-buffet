@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeCandlehearthCoffee : UserControl
     {
-        Order parent;
-        public CustomizeCandlehearthCoffee(Order ord)
+        OrderComponent parent;
+        public CustomizeCandlehearthCoffee(OrderComponent ord, CandlehearthCoffee cc)
         {
             InitializeComponent();
-            CandlehearthCoffee cc = new CandlehearthCoffee();
             DataContext = cc;
             parent = ord;
         }

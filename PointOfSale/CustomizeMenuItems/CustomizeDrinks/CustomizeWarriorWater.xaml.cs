@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeWarriorWater : UserControl
     {
-        Order parent;
-        public CustomizeWarriorWater(Order ord)
+        OrderComponent parent;
+        public CustomizeWarriorWater(OrderComponent ord, WarriorWater ww)
         {
             InitializeComponent();
-            WarriorWater ww = new WarriorWater();
             DataContext = ww;
             parent = ord;
         }

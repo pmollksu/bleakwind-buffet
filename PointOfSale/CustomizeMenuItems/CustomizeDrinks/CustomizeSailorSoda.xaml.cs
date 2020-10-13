@@ -26,11 +26,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeSailorSoda : UserControl
     {
-        Order parent;
-        public CustomizeSailorSoda(Order ord)
+        OrderComponent parent;
+        public CustomizeSailorSoda(OrderComponent ord, SailorSoda ss)
         {
             InitializeComponent();
-            SailorSoda ss = new SailorSoda();
             DataContext = ss;
             parent = ord;
         }

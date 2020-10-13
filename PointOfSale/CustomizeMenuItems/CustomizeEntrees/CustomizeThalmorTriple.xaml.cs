@@ -24,11 +24,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeThalmorTriple : UserControl
     {
-        Order parent;
-        public CustomizeThalmorTriple(Order ord)
+        OrderComponent parent;
+        public CustomizeThalmorTriple(OrderComponent ord, ThalmorTriple thalt)
         {
             InitializeComponent();
-            ThalmorTriple thalt = new ThalmorTriple();
             DataContext = thalt;
             parent = ord;
         }

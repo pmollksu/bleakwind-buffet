@@ -24,12 +24,11 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeThugsTBone : UserControl
     {
-        Order parent;
-        public CustomizeThugsTBone(Order ord)
+        OrderComponent parent;
+        public CustomizeThugsTBone(OrderComponent ord, ThugsTBone thugsT)
         {
             InitializeComponent();
-            ThugsTBone thugst = new ThugsTBone();
-            DataContext = thugst;
+            DataContext = thugsT;
             parent = ord;
         }
 

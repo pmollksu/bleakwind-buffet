@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.Order"
+﻿<UserControl x:Class="PointOfSale.OrderComponent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -23,19 +23,37 @@
         </Button>
         <DockPanel Grid.Column="3">
             <TextBlock DockPanel.Dock="Top" FontWeight="Bold" TextAlignment="Center" FontSize="20">
-                Order Summary
+                <Run Text="Order #"/>
+                <Run Text="{Binding Path= Number, Mode=OneWay}"/>
             </TextBlock>
-            <ListView Name="itemsListView" DockPanel.Dock="Top"/>
+            <ListView SelectionChanged="itemsListView_SelectionChanged"  Name="itemsListView" DockPanel.Dock="Top" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Name="itemName" Text="{Binding Path=MockToString}" />
+                            <TextBlock Name="itemPrice" Text="{Binding Path=Price, StringFormat={}{0:C}}"/>
+                            <ListView Name="instructions" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <Button Click="cancelItem_Click"  x:Name="cancelItem" >
+                                Cancel Item
+                            </Button>
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </DockPanel>
         <DockPanel Grid.Column="3" Grid.Row="1" LastChildFill="False">
             <TextBlock Name="subtotalTextBox" DockPanel.Dock="Top" TextAlignment="Center" FontWeight="Bold" FontSize="20">
-                Subtotal:
+                <Run Text="Subtotal: "/>
+                <Run Text="{Binding Path=Subtotal, Mode=OneWay, StringFormat={}{0:C}}"/>
             </TextBlock>
             <TextBlock Name="taxTextBox" DockPanel.Dock="Top" TextAlignment="Center" FontWeight="Bold" FontSize="20">
-                Tax:
+                <Run Text="Tax: "/>
+                <Run Text="{Binding Path=Tax, Mode=OneWay, StringFormat={}{0:C}}"/>
             </TextBlock>
             <TextBlock Name="totalTextBox" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="20">
-                Total:
+                <Run Text="Total: "/>
+                <Run Text="{Binding Path=Total, Mode=OneWay, StringFormat={}{0:C}}"/>
             </TextBlock> 
         </DockPanel>
         <Border Name="menuBorder" Grid.ColumnSpan="3" Grid.RowSpan="3" >

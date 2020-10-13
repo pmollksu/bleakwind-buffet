@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
     /// </summary>
     public partial class CustomizeDragonbornWaffleFries : UserControl
     {
-        Order parent;
-        public CustomizeDragonbornWaffleFries(Order ord)
+        OrderComponent parent;
+        public CustomizeDragonbornWaffleFries(OrderComponent ord, DragonbornWaffleFries wf)
         {
             InitializeComponent();
-            DragonbornWaffleFries wf = new DragonbornWaffleFries();
             DataContext = wf;
             parent = ord;
         }

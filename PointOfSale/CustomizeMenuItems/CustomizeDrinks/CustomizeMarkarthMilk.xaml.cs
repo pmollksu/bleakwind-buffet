@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeMarkarthMilk : UserControl
     {
-        Order parent;
-        public CustomizeMarkarthMilk(Order ord)
+        OrderComponent parent;
+        public CustomizeMarkarthMilk(OrderComponent ord, MarkarthMilk mm)
         {
             InitializeComponent();
-            MarkarthMilk mm = new MarkarthMilk();
             DataContext = mm;
             parent = ord;
         }

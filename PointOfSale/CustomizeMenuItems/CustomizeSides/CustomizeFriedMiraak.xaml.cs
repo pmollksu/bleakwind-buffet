@@ -26,11 +26,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
     /// </summary>
     public partial class CustomizeFriedMiraak : UserControl
     {
-        Order parent;
-        public CustomizeFriedMiraak(Order ord)
+        OrderComponent parent;
+        public CustomizeFriedMiraak(OrderComponent ord, FriedMiraak fm)
         {
             InitializeComponent();
-            FriedMiraak fm = new FriedMiraak();
             DataContext = fm;
             parent = ord;
         }

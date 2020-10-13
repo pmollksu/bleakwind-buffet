@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
     /// </summary>
     public partial class CustomizeVokunSalad : UserControl
     {
-        Order parent;
-        public CustomizeVokunSalad(Order ord)
+        OrderComponent parent;
+        public CustomizeVokunSalad(OrderComponent ord, VokunSalad vs)
         {
             InitializeComponent();
-            VokunSalad vs = new VokunSalad();
             DataContext = vs;
             parent = ord;
         }

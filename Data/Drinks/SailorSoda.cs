@@ -61,6 +61,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 ice = value;
                 InvokePropertyChanged("Ice");
+                InvokePropertyChanged("SpecialInstructions");
             }
         }
 
@@ -75,6 +76,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 flavor = value;
                 InvokePropertyChanged("Flavor");
+                InvokePropertyChanged("MockToString");
             }
         }
 

@@ -23,10 +23,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="cancelOrder" Margin="0,0,50,10" FontWeight="Bold" Background="IndianRed">
+        <Button Name="cancelOrder" Click="cancelOrder_Click" Grid.Row="0" Grid.Column="0" Margin="0,0,50,10" FontWeight="Bold" Background="IndianRed" IsEnabled="True">
             Cancel Order
         </Button>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" TextAlignment="Center" FontWeight="Bold" FontSize="25">
+        <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontWeight="Bold" FontSize="25">
            Add to Order 
         </TextBlock>
         <TextBlock Grid.Row="1" TextAlignment="Center" FontWeight="Bold" FontSize="20">
@@ -38,20 +38,23 @@
         <TextBlock Grid.Row="1" Grid.Column="2"  TextAlignment="Center" FontWeight="Bold" FontSize="20">
             Sides
         </TextBlock>
-        
-        <Button Click="customizeBB" Name="briarhearBurgerButton" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+
+        <Button Name="comboButton" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+            New Combo
+        </Button>
+        <Button Click="customizeBB" Name="bbButton" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
             Briarheart Burger
         </Button>
-        <Button Click="customizeDD" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+        <Button Click="customizeDD" Name="ddButton" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
             Double Dragur
         </Button>
-        <Button Click="customizeTT" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+        <Button Click="customizeTT" Name="ttButton" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
             Thalmor Triple
         </Button>
-        <Button Click="customizeSS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+        <Button Click="customizeSS" Name="ssButton" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
             Smokehouse Skeleton
         </Button>
-        <Button Click="customizeGOC" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+        <Button Click="customizeGOC" Name="goccButton" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
             Garden Orc Omelette
         </Button>
         <Button Click="customizePP" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">

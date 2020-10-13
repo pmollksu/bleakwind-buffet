@@ -18,6 +18,10 @@ using System.Windows.Shapes;
 using PointOfSale.CustomizeMenuItems.CustomizeEntrees;
 using PointOfSale.CustomizeMenuItems.CustomizeSides;
 using PointOfSale.CustomizeMenuItems.CustomizeDrinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale
 {
@@ -27,8 +31,10 @@ namespace PointOfSale
     /// <remarks>Adjusted using the menuBorder of the Order component</remarks>
     public partial class MenuComponent : UserControl
     {
-        Order parent;
-        public MenuComponent(Order ord)
+       
+
+        OrderComponent parent;
+        public MenuComponent(OrderComponent ord)
         {
             InitializeComponent();
             parent = ord;
@@ -41,7 +47,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeBB(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeBriarheartBurger(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeBriarheartBurger cbb = new CustomizeBriarheartBurger(parent, new BriarheartBurger());
+            parent.menuBorder.Child = cbb;
+            ord.Add((IOrderItem)cbb.DataContext);
         }
 
         /// <summary>
@@ -51,7 +61,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeDD(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeDoubleDraugr(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeDoubleDraugr cdd = new CustomizeDoubleDraugr(parent, new DoubleDraugr());
+            parent.menuBorder.Child = cdd;
+            ord.Add((IOrderItem)cdd.DataContext);
         }
 
         /// <summary>
@@ -61,7 +75,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeTT(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeThalmorTriple(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeThalmorTriple ctt = new CustomizeThalmorTriple(parent, new ThalmorTriple());
+            parent.menuBorder.Child = ctt;
+            ord.Add((IOrderItem)ctt.DataContext);
         }
 
         /// <summary>
@@ -71,7 +89,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeSS(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeSmokehouseSkeleton(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeSmokehouseSkeleton css = new CustomizeSmokehouseSkeleton(parent, new SmokehouseSkeleton());
+            parent.menuBorder.Child = css;
+            ord.Add((IOrderItem)css.DataContext);
         }
 
         /// <summary>
@@ -81,7 +103,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizePP(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizePhillyPoacher(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizePhillyPoacher cpp = new CustomizePhillyPoacher(parent, new PhillyPoacher());
+            parent.menuBorder.Child = cpp;
+            ord.Add((IOrderItem)cpp.DataContext);
         }
 
         /// <summary>
@@ -91,7 +117,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeGOC(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeGardenOrcOmelette(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeGardenOrcOmelette cgorc = new CustomizeGardenOrcOmelette(parent, new GardenOrcOmelette());
+            parent.menuBorder.Child = cgorc;
+            ord.Add((IOrderItem)cgorc.DataContext);
         }
 
         /// <summary>
@@ -101,7 +131,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeThugsT(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeThugsTBone(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeThugsTBone cthugs = new CustomizeThugsTBone(parent, new ThugsTBone());
+            parent.menuBorder.Child = cthugs;
+            ord.Add((IOrderItem)cthugs.DataContext);
         }
 
         /// <summary>
@@ -111,7 +145,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeVS(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeVokunSalad(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeVokunSalad cvs = new CustomizeVokunSalad(parent, new VokunSalad());
+            parent.menuBorder.Child = cvs;
+            ord.Add((IOrderItem)cvs.DataContext);
         }
 
         /// <summary>
@@ -121,7 +159,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeFM(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeFriedMiraak(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeFriedMiraak cfm = new CustomizeFriedMiraak(parent, new FriedMiraak());
+            parent.menuBorder.Child = cfm;
+            ord.Add((IOrderItem)cfm.DataContext);
         }
 
         /// <summary>
@@ -131,7 +173,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeMOG(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeMadOtarGrits(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeMadOtarGrits cmog = new CustomizeMadOtarGrits(parent, new MadOtarGrits());
+            parent.menuBorder.Child = cmog;
+            ord.Add((IOrderItem)cmog.DataContext);
         }
 
         /// <summary>
@@ -141,7 +187,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeDW(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeDragonbornWaffleFries(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeDragonbornWaffleFries cwf = new CustomizeDragonbornWaffleFries(parent, new DragonbornWaffleFries());
+            parent.menuBorder.Child = cwf;
+            ord.Add((IOrderItem)cwf.DataContext);
         }
 
         /// <summary>
@@ -151,7 +201,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeSailSoda(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeSailorSoda(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeSailorSoda css = new CustomizeSailorSoda(parent, new SailorSoda());
+            parent.menuBorder.Child = css;
+            ord.Add((IOrderItem)css.DataContext);
         }
 
         /// <summary>
@@ -161,7 +215,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeMM(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeMarkarthMilk(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeMarkarthMilk cmm = new CustomizeMarkarthMilk(parent, new MarkarthMilk());
+            parent.menuBorder.Child = cmm;
+            ord.Add((IOrderItem)cmm.DataContext);
         }
 
         /// <summary>
@@ -171,7 +229,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeAAJ(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeAretinoAppleJuice(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeAretinoAppleJuice caj = new CustomizeAretinoAppleJuice(parent, new AretinoAppleJuice());
+            parent.menuBorder.Child = caj;
+            ord.Add((IOrderItem)caj.DataContext);
         }
 
         /// <summary>
@@ -181,7 +243,11 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeCC(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeCandlehearthCoffee(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeCandlehearthCoffee ccc = new CustomizeCandlehearthCoffee(parent, new CandlehearthCoffee());
+            parent.menuBorder.Child = ccc;
+            ord.Add((IOrderItem)ccc.DataContext);
         }
 
         /// <summary>
@@ -191,9 +257,27 @@ namespace PointOfSale
         /// <param name="e">used for click event</param>
         public void customizeWW(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new CustomizeWarriorWater(parent);
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeWarriorWater cww = new CustomizeWarriorWater(parent, new WarriorWater());
+            parent.menuBorder.Child = cww;
+            ord.Add((IOrderItem)cww.DataContext);
+        }
+     
+
+        /// <summary>
+        /// Cancels the current order by clearing all items in the list
+        /// </summary>
+        /// <param name="sender">used for click event</param>
+        /// <param name="e"></param>
+        private void cancelOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Order ord;
+            ord = (Order)parent.DataContext;
+            ord.Clear();
+            parent.DataContext = new Order();
         }
 
-
+        
     }
 }

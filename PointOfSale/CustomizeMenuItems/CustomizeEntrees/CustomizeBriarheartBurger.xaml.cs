@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
@@ -24,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeBriarheartBurger : UserControl
     {
-        Order parent;
-        public CustomizeBriarheartBurger(Order ord)
+        OrderComponent parent;
+        public CustomizeBriarheartBurger(OrderComponent ord, BriarheartBurger bb)
         {
             InitializeComponent();
-            BriarheartBurger bb = new BriarheartBurger();
             DataContext = bb;
             parent = ord;
         }

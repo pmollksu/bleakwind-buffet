@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizePhillyPoacher : UserControl
     {
-        Order parent;
-        public CustomizePhillyPoacher(Order ord)
+        OrderComponent parent;
+        public CustomizePhillyPoacher(OrderComponent ord, PhillyPoacher pp)
         {
             InitializeComponent();
-            PhillyPoacher pp = new PhillyPoacher();
             DataContext = pp;
             parent = ord;
         }

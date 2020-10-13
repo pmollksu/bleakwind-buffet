@@ -24,11 +24,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeSmokehouseSkeleton : UserControl
     {
-        Order parent;
-        public CustomizeSmokehouseSkeleton(Order ord)
+        OrderComponent parent;
+        public CustomizeSmokehouseSkeleton(OrderComponent ord, SmokehouseSkeleton ss)
         {
             InitializeComponent();
-            SmokehouseSkeleton ss = new SmokehouseSkeleton();
             DataContext = ss;
             parent = ord;
         }

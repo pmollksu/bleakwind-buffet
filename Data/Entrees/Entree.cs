@@ -48,5 +48,16 @@ namespace BleakwindBuffet.Data.Entrees
         /// Special instructions to prepare the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// gets toString of entree to match form of drink and side for toString notify limitations
+        /// </summary>
+        public virtual string MockToString
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
     }
 }

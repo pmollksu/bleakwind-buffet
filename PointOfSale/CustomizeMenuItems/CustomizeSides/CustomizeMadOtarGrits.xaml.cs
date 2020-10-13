@@ -25,11 +25,10 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
     /// </summary>
     public partial class CustomizeMadOtarGrits : UserControl
     {
-        Order parent;
-        public CustomizeMadOtarGrits(Order ord)
+        OrderComponent parent;
+        public CustomizeMadOtarGrits(OrderComponent ord, MadOtarGrits mog)
         {
             InitializeComponent();
-            MadOtarGrits mog = new MadOtarGrits();
             DataContext = mog;
             parent = ord;
         }

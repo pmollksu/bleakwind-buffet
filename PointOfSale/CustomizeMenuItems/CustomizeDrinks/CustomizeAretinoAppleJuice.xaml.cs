@@ -25,12 +25,11 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeAretinoAppleJuice : UserControl
     {
-        Order parent;
-        public CustomizeAretinoAppleJuice(Order ord)
+        OrderComponent parent;
+        public CustomizeAretinoAppleJuice(OrderComponent ord, AretinoAppleJuice aj)
         {
             InitializeComponent();
             parent = ord;
-            AretinoAppleJuice aj = new AretinoAppleJuice();
             DataContext = aj;
         }
         
