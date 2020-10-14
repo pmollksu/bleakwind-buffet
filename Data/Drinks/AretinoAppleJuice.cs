@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Patrick Moll
  * Class name: AretinoAppleJuice.cs
- * Purpose: Class used to define properties and preferences of an aretino apple juice
+ * Purpose: Class used to define properties and preferences of an Aretino Apple Juice
  */
 using System;
 using System.Collections.Generic;
