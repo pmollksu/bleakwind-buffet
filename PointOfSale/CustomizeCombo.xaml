@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="PointOfSale.CustomizeCombo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" FontWeight ="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="30">
+            Customize Combo
+        </TextBlock>
+
+        <ComboBox Name="EntreeComboBox" Grid.Column="1" Grid.Row="1" SelectionChanged="EntreeComboBox_SelectionChanged"  Width="250" Height="50" FontSize="20" SelectedIndex="0" DockPanel.Dock="Top" >
+            <ComboBoxItem x:Name="BriarheartBurger">Briarheart Burger</ComboBoxItem>
+            <ComboBoxItem  x:Name="DoubleDraugr">Double Draugr</ComboBoxItem>
+            <ComboBoxItem  x:Name="GardenOrcOmelette">Garden Orc Omelette</ComboBoxItem>
+            <ComboBoxItem  x:Name="PhillyPoacher">Philly Poacher</ComboBoxItem>
+            <ComboBoxItem  x:Name="SmokehouseSkeleton">Smokehouse Skeleton</ComboBoxItem>
+            <ComboBoxItem  x:Name="ThalmorTriple">Thalmor Triple</ComboBoxItem>
+            <ComboBoxItem  x:Name="ThugsTBone">Thugs TBone</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="SideComboBox" Grid.Column="1" Grid.Row="2" SelectionChanged="SideComboBox_SelectionChanged"  Width="250" Height="50" FontSize="20" SelectedIndex="0" DockPanel.Dock="Top">
+            <ComboBoxItem x:Name="DragonbornWaffleFries">Dragonborn Waffle Fries</ComboBoxItem>
+            <ComboBoxItem  x:Name="FriedMiraak">Fried Miraak</ComboBoxItem>
+            <ComboBoxItem  x:Name="MadOtarGrits">Mad Otar Grits</ComboBoxItem>
+            <ComboBoxItem  x:Name="VokunSalad">Vokun Salad</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="DrinkComboBox" Grid.Column="1" Grid.Row="3" SelectionChanged="DrinkComboBox_SelectionChanged"  Width="250" Height="50" FontSize="20" SelectedIndex="0" DockPanel.Dock="Top">
+            <ComboBoxItem x:Name="AretinoAppleJuice">Aretino Apple Juice</ComboBoxItem>
+            <ComboBoxItem  x:Name="CandlehearthCoffee">Candlehearth Coffee</ComboBoxItem>
+            <ComboBoxItem  x:Name="MarkarthMilk">Markarth Milk</ComboBoxItem>
+            <ComboBoxItem  x:Name="SailorSoda">Sailor Soda</ComboBoxItem>
+            <ComboBoxItem  x:Name="WarriorWater">Warrior Water</ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Column="0" Grid.Row="1" Height="75" FontSize="20" x:Name="CustomizeEntreeButton" Click="CustomizeEntreeButton_Click">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Customize<LineBreak/>Entree</TextBlock>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="2" Height="75" FontSize="20" x:Name="CustomizeSideButton" Click="CustomizeSideButton_Click">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Customize<LineBreak/>Side</TextBlock>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="3" Height="75" FontSize="20" x:Name="CustomizeDrinkButton" Click="CustomizeDrinkButton_Click">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Customize<LineBreak/>Drink</TextBlock>
+        </Button>
+        <Button Click="DoneButton_Click" Grid.Column="2" Grid.Row="4" FontSize="25" x:Name="DoneButton">
+            Done
+        </Button>
+
+
+        
+    </Grid>
+</UserControl>

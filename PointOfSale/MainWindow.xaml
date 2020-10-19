@@ -9,4 +9,5 @@
     <Grid>
         <local:OrderComponent/>
     </Grid>
+    
 </Window>

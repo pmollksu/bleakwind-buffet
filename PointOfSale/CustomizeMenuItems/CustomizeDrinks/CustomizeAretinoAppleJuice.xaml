@@ -27,7 +27,7 @@
             </CheckBox>
         </StackPanel>
         <StackPanel  Grid.Column="0" Grid.Row="1" Margin="20"  >
-            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged"  Width="100" FontSize="20" SelectedIndex="0">
+            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged"  Width="100" FontSize="20">
                 <ComboBoxItem x:Name="Small">Small</ComboBoxItem>
                 <ComboBoxItem  x:Name="Medium">Medium</ComboBoxItem>
                 <ComboBoxItem  x:Name="Large">Large</ComboBoxItem>

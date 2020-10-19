@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using Size = BleakwindBuffet.Data.Enums.Size;
 
@@ -25,12 +26,36 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
     /// </summary>
     public partial class CustomizeVokunSalad : UserControl
     {
-        OrderComponent parent;
-        public CustomizeVokunSalad(OrderComponent ord, VokunSalad vs)
+        UserControl parent;
+        public CustomizeVokunSalad(UserControl par, VokunSalad vs)
         {
             InitializeComponent();
             DataContext = vs;
-            parent = ord;
+            parent = par;
+            AlignSizeCheckBox();
+
+            if (parent is CustomizeCombo cc)
+            {
+
+                    Combo cmb = (Combo)cc.DataContext;
+                    cmb.Side = (Side)this.DataContext;
+                       
+
+            }
+        }
+
+        /// <summary>
+        /// Aligns the size checkbox to the size of the item
+        /// </summary>
+        private void AlignSizeCheckBox()
+        {
+            if (DataContext is VokunSalad item)
+            {
+                if (item.Size == Size.Small) SizeComboBox.SelectedIndex = 0;
+                if (item.Size == Size.Medium) SizeComboBox.SelectedIndex = 1;
+                if (item.Size == Size.Large) SizeComboBox.SelectedIndex = 2;
+            }
+
         }
 
         /// <summary>
@@ -40,7 +65,20 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeSides
         /// <param name="e">used for click event</param>
         public void doneClick(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new MenuComponent(parent);
+            if (parent is OrderComponent oc)
+            {
+                oc.menuBorder.Child = new MenuComponent(oc);
+            }
+            if (parent is CustomizeCombo cc)
+            {
+                if (cc.ParentOrder is OrderComponent ordc)
+                {
+                    Combo cmb = (Combo)parent.DataContext;
+                    cmb.Side = (Side)this.DataContext;
+                    ordc.menuBorder.Child = this.parent;
+                }
+
+            }
         }
 
         /// <summary>

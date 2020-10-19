@@ -27,13 +27,13 @@
             </CheckBox>
         </StackPanel>
         <StackPanel  Grid.Column="0" Grid.Row="1" Margin="20"  >
-            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged" Width="100" FontSize="20" SelectedIndex="0">
+            <ComboBox Name="SizeComboBox" SelectionChanged="Size_SelectionChanged" Width="100" FontSize="20">
                 <ComboBoxItem x:Name="Small">Small</ComboBoxItem>
                 <ComboBoxItem x:Name="Medium">Medium</ComboBoxItem>
                 <ComboBoxItem x:Name="Large">Large</ComboBoxItem>
             </ComboBox>
 
-            <ComboBox Name="Flavor" SelectionChanged="Flavor_SelectionChanged" Width="200" FontSize="20" Margin="100" SelectedIndex="0">
+            <ComboBox Name="FlavorComboBox" SelectionChanged="Flavor_SelectionChanged" Width="200" FontSize="20" Margin="100" >
                 <ComboBoxItem x:Name="Cherry">Cherry</ComboBoxItem>
                 <ComboBoxItem x:Name="Blackberry">Blackberry</ComboBoxItem>
                 <ComboBoxItem x:Name="Grapefruit">Grapefruit</ComboBoxItem>

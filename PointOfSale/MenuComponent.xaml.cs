@@ -278,6 +278,14 @@ namespace PointOfSale
             parent.DataContext = new Order();
         }
 
-        
+        private void comboButton_Click(object sender, RoutedEventArgs e)
+        {
+            Order ord;
+            ord = (Order)parent.DataContext;
+            CustomizeCombo custcombo = new CustomizeCombo(parent, new Combo());
+            parent.menuBorder.Child = custcombo;
+            ord.Add((IOrderItem)custcombo.DataContext);
+
+        }
     }
 }

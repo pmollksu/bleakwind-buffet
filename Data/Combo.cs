@@ -24,12 +24,13 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// Drink to be used in the combo
         /// </summary>
-        private Drink drink = null;
+        private Drink drink = new AretinoAppleJuice();
         public Drink Drink
         {
             get => drink;
             set
             {
+                Drink.PropertyChanged -= ItemPropertyChangedListener;
                 drink = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -45,12 +46,13 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// Side to be used in the combo
         /// </summary>
-        private Side side = null;
+        private Side side =  new DragonbornWaffleFries();
         public Side Side
         {
             get => side;
             set
             {
+                Side.PropertyChanged -= ItemPropertyChangedListener;
                 side = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -63,12 +65,13 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// Entree to be used in the combo
         /// </summary>
-        private Entree entree = null;
+        private Entree entree = new BriarheartBurger();
         public Entree Entree
         {
             get => entree;
             set
             {
+                Entree.PropertyChanged -= ItemPropertyChangedListener;
                 entree = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
@@ -90,6 +93,10 @@ namespace BleakwindBuffet.Data
                 price = Entree.Price + Side.Price + Drink.Price - 1;
                 return Math.Round(price, 2);
             }
+            set
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
         }
 
        
@@ -103,6 +110,10 @@ namespace BleakwindBuffet.Data
                 uint calories = 0;
                 calories = Entree.Calories + Side.Calories + Drink.Calories; 
                 return calories;
+            }
+            set
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
 
         }
@@ -124,6 +135,10 @@ namespace BleakwindBuffet.Data
                 return specialinstructions;
 
             }
+            set
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
 
         }
 
@@ -134,11 +149,11 @@ namespace BleakwindBuffet.Data
         /// <param name="e"></param>
         void ItemPropertyChangedListener(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "Drink")
+            if (e.PropertyName == "Drink")
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
             }
-            if(e.PropertyName =="Side")
+            if (e.PropertyName == "Side")
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
             }
@@ -147,6 +162,27 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
             }
         }
-           
+
+        /// <summary>
+        /// Only used to make the combo order item have a label above the price
+        /// </summary>
+        /// <returns>simply combo</returns>
+        public String MockToString
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// ToString for Combo
+        /// </summary>
+        /// <returns>Combo</returns>
+        public override string ToString()
+        {
+            return "Combo";
+        }
+
     }
 }

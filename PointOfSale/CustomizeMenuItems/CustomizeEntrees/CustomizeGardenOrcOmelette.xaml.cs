@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
@@ -24,12 +25,12 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeGardenOrcOmelette : UserControl
     {
-        OrderComponent parent;
-        public CustomizeGardenOrcOmelette(OrderComponent ord, GardenOrcOmelette gorc)
+        UserControl parent;
+        public CustomizeGardenOrcOmelette(UserControl par, GardenOrcOmelette gorc)
         {
             InitializeComponent();
             DataContext = gorc;
-            parent = ord;
+            parent = par;
         }
 
         /// <summary>
@@ -39,7 +40,20 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
         /// <param name="e">used for click event</param>
         public void doneClick(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new MenuComponent(parent);
+            if (parent is OrderComponent oc)
+            {
+                oc.menuBorder.Child = new MenuComponent(oc);
+            }
+            if (parent is CustomizeCombo cc)
+            {
+                if (cc.ParentOrder is OrderComponent ordc)
+                {
+                    Combo cmb = (Combo)parent.DataContext;
+                    cmb.Entree = (Entree)this.DataContext;
+                    ordc.menuBorder.Child = this.parent;
+                }
+
+            }
         }
     }
 }

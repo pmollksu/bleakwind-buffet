@@ -141,8 +141,23 @@ namespace PointOfSale
                 CustomizeVokunSalad cvs = new CustomizeVokunSalad(this, vs);
                 menuBorder.Child = cvs;
             }
+            else if (curItem is Combo cmb)
+            {
+                CustomizeCombo ccmb = new CustomizeCombo(this, cmb);
+                menuBorder.Child = ccmb;
+            }
 
         }
 
+        /// <summary>
+        /// Switches to payment screen and minimizes order component column 
+        /// </summary>
+        /// <param name="sender">used for click event</param>
+        /// <param name="e">used for click event</param>
+        private void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+            ColumnToHide.Width = new GridLength(0);
+            menuBorder.Child = new PaymentOptions(this);
+        }
     }
 }

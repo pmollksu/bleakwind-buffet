@@ -39,7 +39,7 @@
             Sides
         </TextBlock>
 
-        <Button Name="comboButton" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">
+        <Button Name="comboButton" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45" Click="comboButton_Click">
             New Combo
         </Button>
         <Button Click="customizeBB" Name="bbButton" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="190" Height="45">

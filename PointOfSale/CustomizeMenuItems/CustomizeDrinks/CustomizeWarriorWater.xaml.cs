@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using Size = BleakwindBuffet.Data.Enums.Size;
 
@@ -25,12 +26,27 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
     /// </summary>
     public partial class CustomizeWarriorWater : UserControl
     {
-        OrderComponent parent;
-        public CustomizeWarriorWater(OrderComponent ord, WarriorWater ww)
+        UserControl parent;
+        public CustomizeWarriorWater(UserControl par, WarriorWater ww)
         {
             InitializeComponent();
             DataContext = ww;
-            parent = ord;
+            parent = par;
+            AlignSizeCheckBox();
+        }
+
+        /// <summary>
+        /// Aligns the size checkbox to the size of the item
+        /// </summary>
+        private void AlignSizeCheckBox()
+        {
+            if (DataContext is WarriorWater item)
+            {
+                if (item.Size == Size.Small) SizeComboBox.SelectedIndex = 0;
+                if (item.Size == Size.Medium) SizeComboBox.SelectedIndex = 1;
+                if (item.Size == Size.Large) SizeComboBox.SelectedIndex = 2;
+            }
+
         }
 
         /// <summary>
@@ -40,7 +56,20 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeDrinks
         /// <param name="e">used for click event</param>
         public void doneClick(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new MenuComponent(parent);
+            if (parent is OrderComponent oc)
+            {
+                oc.menuBorder.Child = new MenuComponent(oc);
+            }
+            if (parent is CustomizeCombo cc)
+            {
+                if (cc.ParentOrder is OrderComponent ordc)
+                {
+                    Combo cmb = (Combo)parent.DataContext;
+                    cmb.Drink = (Drink)this.DataContext;
+                    ordc.menuBorder.Child = this.parent;
+                }
+
+            }
         }
 
         private void Size_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -25,12 +25,13 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
     /// </summary>
     public partial class CustomizeBriarheartBurger : UserControl
     {
-        OrderComponent parent;
-        public CustomizeBriarheartBurger(OrderComponent ord, BriarheartBurger bb)
+        UserControl parent;
+        public CustomizeBriarheartBurger(UserControl par, BriarheartBurger bb)
         {
             InitializeComponent();
             DataContext = bb;
-            parent = ord;
+            parent = par;
+            
         }
 
 
@@ -41,7 +42,20 @@ namespace PointOfSale.CustomizeMenuItems.CustomizeEntrees
         /// <param name="e">used for click event</param>
         public void doneClick(object sender, RoutedEventArgs e)
         {
-            parent.menuBorder.Child = new MenuComponent(parent);
+            if (parent is OrderComponent oc)
+            {
+                oc.menuBorder.Child = new MenuComponent(oc);
+            }
+            if (parent is CustomizeCombo cc)
+            {
+                if (cc.ParentOrder is OrderComponent ordc)
+                {
+                    Combo cmb = (Combo)parent.DataContext;
+                    cmb.Entree = (Entree)this.DataContext;
+                    ordc.menuBorder.Child = this.parent;
+                }
+
+            }
         }
     }
 }
