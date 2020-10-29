@@ -31,6 +31,11 @@ namespace BleakwindBuffet.Data
         /// </summary>
         List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Gets the name of the item
+        /// </summary>
+        string MockToString { get; }
+
 
 
     }
