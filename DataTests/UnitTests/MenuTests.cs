@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.Linq;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -155,6 +156,140 @@ namespace BleakwindBuffet.DataTests.UnitTests
                                  item => Assert.Contains("Large Warrior Water", item.ToString())
                                 );
             Assert.Equal(52, menu.Count);
+        }
+
+        [Fact]
+        public void FilteringByStringShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> m =  Menu.Search("Cherry");
+            List<IOrderItem> menu = (List<IOrderItem>)m;
+            Assert.Collection(menu, item => Assert.Contains("Small Cherry Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Medium Cherry Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Cherry Sailor Soda", item.ToString()));
+            Assert.Equal(3, menu.Count);
+
+        }
+
+        [Fact]
+        public void FilteringByCategoryShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            string[] category = { "Side", "Entree" };
+            menu = Menu.FilterByCategory(menu, category);
+            Assert.Collection(menu, item => Assert.Contains("Briarheart Burger", item.ToString()),
+                                 item => Assert.Contains("Double Draugr", item.ToString()),
+                                 item => Assert.Contains("Garden Orc Omelette", item.ToString()),
+                                 item => Assert.Contains("Philly Poacher", item.ToString()),
+                                 item => Assert.Contains("Smokehouse Skeleton", item.ToString()),
+                                 item => Assert.Contains("Thalmor Triple", item.ToString()),
+                                 item => Assert.Contains("Thugs T-Bone", item.ToString()),
+                                 item => Assert.Contains("Small Dragonborn Waffle Fries", item.ToString()),
+                                 item => Assert.Contains("Small Fried Miraak", item.ToString()),
+                                 item => Assert.Contains("Small Mad Otar Grits", item.ToString()),
+                                 item => Assert.Contains("Small Vokun Salad", item.ToString()),
+                                 item => Assert.Contains("Medium Dragonborn Waffle Fries", item.ToString()),
+                                 item => Assert.Contains("Medium Fried Miraak", item.ToString()),
+                                 item => Assert.Contains("Medium Mad Otar Grits", item.ToString()),
+                                 item => Assert.Contains("Medium Vokun Salad", item.ToString()),
+                                 item => Assert.Contains("Large Dragonborn Waffle Fries", item.ToString()),
+                                 item => Assert.Contains("Large Fried Miraak", item.ToString()),
+                                 item => Assert.Contains("Large Mad Otar Grits", item.ToString()),
+                                 item => Assert.Contains("Large Vokun Salad", item.ToString()));
+
+            Assert.Equal(19, menu.Count());
+
+        }
+
+
+        [Fact]
+        public void FilteringByCaloriesShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByCalories(menu, 200, 410);
+            Assert.Collection(menu, item => Assert.Contains("Garden Orc Omelette", item.ToString()),
+                                    item => Assert.Contains("Medium Fried Miraak", item.ToString()),
+                                    item => Assert.Contains("Large Fried Miraak", item.ToString()),
+                                    item => Assert.Contains("Large Blackberry Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Cherry Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Grapefruit Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Lemon Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Peach Sailor Soda", item.ToString()),
+                                    item => Assert.Contains("Large Watermelon Sailor Soda", item.ToString())
+                                    );
+            Assert.Equal(9, menu.Count());
+        }
+
+        [Fact]
+        public void FilteringByCaloriesNoMinShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByCalories(menu, null, 10);
+            Assert.Collection(menu, item => Assert.Contains("Small Candlehearth Coffee", item.ToString()),
+                                    item => Assert.Contains("Small Decaf Candlehearth Coffee", item.ToString()),
+                                    item => Assert.Contains("Small Warrior Water", item.ToString()),
+                                    item => Assert.Contains("Medium Candlehearth Coffee", item.ToString()),
+                                    item => Assert.Contains("Medium Decaf Candlehearth Coffee", item.ToString()),
+                                    item => Assert.Contains("Medium Warrior Water", item.ToString()),
+                                    item => Assert.Contains("Large Warrior Water", item.ToString()));
+            Assert.Equal(7, menu.Count());
+        }
+
+        [Fact]
+        public void FilteringByCaloriesNoMaxShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByCalories(menu, 930, null);
+            Assert.Collection(menu, item => Assert.Contains("Thalmor Triple", item.ToString()),
+                                    item => Assert.Contains("Thugs T-Bone", item.ToString())
+                                   );
+            Assert.Equal(2, menu.Count());
+
+        }
+
+        [Fact]
+        public void FilteringByPriceShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByPrice(menu, 5.50, 8.25);
+            Assert.Collection(menu, item => Assert.Contains("Briarheart Burger", item.ToString()),
+                                item => Assert.Contains("Double Draugr", item.ToString()),
+                                item => Assert.Contains("Philly Poacher", item.ToString()),
+                                item => Assert.Contains("Smokehouse Skeleton", item.ToString()),
+                                item => Assert.Contains("Thugs T-Bone", item.ToString()));
+            Assert.Equal(5, menu.Count());
+
+        }
+
+        [Fact]
+        public void FilteringByPriceNoMinShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByPrice(menu, null, .10);
+            Assert.Collection(menu, item => Assert.Contains("Small Warrior Water", item.ToString()),
+                                    item => Assert.Contains("Medium Warrior Water", item.ToString()),
+                                    item => Assert.Contains("Large Warrior Water", item.ToString()));
+
+            Assert.Equal(3, menu.Count());
+        }
+
+        [Fact]
+        public void FilteringByPriceNoMaxShouldReturnCorrectResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.FilterByPrice(menu, 8.00, null);
+            Assert.Collection(menu, item => Assert.Contains("Thalmor Triple", item.ToString()));
+        }
+
+        [Fact]
+        public void NullFilterResultsShouldNotChangeFilterResults()
+        {
+            IEnumerable<IOrderItem> menu = Menu.All;
+            menu = Menu.Search(null);
+            menu = Menu.FilterByCategory(menu, null);
+            menu = Menu.FilterByCalories(menu,null,null);
+            menu = Menu.FilterByPrice(menu, null,null);
+            Assert.Equal(52, menu.Count());
+
         }
     }
 }

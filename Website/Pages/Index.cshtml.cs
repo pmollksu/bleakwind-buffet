@@ -9,8 +9,44 @@ using BleakwindBuffet.Data;
 
 namespace Website.Pages
 {
+    [BindProperties(SupportsGet =true)]
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// The filtered Menu item types
+        /// </summary>
+        public string[] ItemTypes { get; set; } = new string[0];
+
+        /// <summary>
+        /// Filtered menu items
+        /// </summary>
+        public IEnumerable<IOrderItem> MenuItems { get; set; }
+
+        /// <summary>
+        /// Search string provided
+        /// </summary>
+        public string SearchTerms { get; set; }
+
+        /// <summary>
+        /// Minimum filter for IMDB
+        /// </summary>
+        public double? PriceMin { get; set; }
+
+        /// <summary>
+        /// Maximum filter for IMDB
+        /// </summary>
+        public double? PriceMax { get; set; }
+
+        /// <summary>
+        /// Minimum filter for calories
+        /// </summary>
+        public int? CaloriesMin { get; set; }
+
+        /// <summary>
+        /// Maximum filter for calories
+        /// </summary>
+        public int? CaloriesMax { get; set; }
+
         /// <summary>
         /// A list of all entrees
         /// </summary>
@@ -33,9 +69,15 @@ namespace Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Gets the search results for display on the page
+        /// </summary>
         public void OnGet()
         {
-
+            MenuItems = Menu.Search(SearchTerms);
+            MenuItems = Menu.FilterByCategory(MenuItems, ItemTypes);
+            MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
+            MenuItems = Menu.FilterByCalories(MenuItems, CaloriesMin, CaloriesMax);
         }
 
 

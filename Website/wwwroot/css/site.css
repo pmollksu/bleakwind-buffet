@@ -83,6 +83,27 @@ body{
     text-align: center;
 }
 
+form#menu {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start; 
+}
+
+    #filters input[type=number] {
+        width: 5rem;
+    }
+
+
+    #filters h4 {
+        margin-bottom: 0.2rem;
+    }
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

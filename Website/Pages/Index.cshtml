@@ -5,7 +5,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="background"/>
+<div class="background" />
 <div class="text-center">
     <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
     <p>
@@ -14,36 +14,92 @@
         Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.
     </p>
 </div>
+<form id="menu">
+    <div id="filters">
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+            <input type="submit" value="Search">
+        </div>
 
-<h2>Entrees</h2>
-@foreach (IOrderItem entree in Model.Entrees)
-{
-    <div class="menu-details">
-        <h3 class="name">@entree.MockToString</h3>
-        <h3 class="price">@entree.Price</h3>
-        <h3 class="calories">@entree.Calories</h3>
+        <h4>Item Type</h4>
+        @foreach (String type in Menu.ItemTypes)
+        {
+            <label>
+                <input type="checkbox" name="ItemTypes" value="@type" checked="@Model.ItemTypes.Contains(type)" />
+                @type
+            </label>
+        }
+
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0" max="8.50" step="0.25" placeholder="min" value="@Model.PriceMin" />
+            and
+            <input name="PriceMax" type="number" min="0" max="8.50" step="0.25" placeholder="max" value="@Model.PriceMax" />
+        </div>
+
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="CaloriesMin" type="number" min="0" max="990" step="10" placeholder="min" value="@Model.CaloriesMin" />
+            and
+            <input name="CaloriesMax" type="number" min="0" max="990" step="10" placeholder="max" value="@Model.CaloriesMax" />
+        </div>
     </div>
-}
-<h2>Sides</h2>
-@foreach (IOrderItem side in Model.Sides)
-{
-    <div class="menu-details">
-        <h3 class="name">@side.MockToString</h3>
-        <h3 class="price">@side.Price</h3>
-        <h3 class="calories">@side.Calories</h3>
+
+    <div id="results">
+        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Entree"))
+        {
+            <h2>Entrees</h2>
+        }
+        @foreach (IOrderItem entree in Model.MenuItems)
+        {
+            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+            {
+                <div class="menu-details">
+                    <h3 class="name">@entree.MockToString</h3>
+                    <h3 class="price">@entree.Price</h3>
+                    <h3 class="calories">@entree.Calories</h3>
+                </div>
+            }
+
+        }
+        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Side"))
+        {
+            <h2>Sides</h2>
+        }
+        @foreach (IOrderItem side in Model.MenuItems)
+        {
+            @if (side is BleakwindBuffet.Data.Sides.Side)
+            {
+                <div class="menu-details">
+                    <h3 class="name">@side.MockToString</h3>
+                    <h3 class="price">@side.Price</h3>
+                    <h3 class="calories">@side.Calories</h3>
+                </div>
+            }
+        }
+        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Drink"))
+        {
+            <h2>Drinks</h2>
+        }
+        @foreach (IOrderItem drink in Model.MenuItems)
+        {
+            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
+            {
+                <div class="menu-details">
+                    <h3 class="name">@drink.MockToString</h3>
+                    <h3 class="price">@drink.Price</h3>
+                    <h3 class="calories">@drink.Calories</h3>
+                </div>
+            }
+        }
+
+        <div class="combo-details">
+            <h2>Combo</h2>
+            <p>A discount of $1 will be applied when any Entree, Drink, and Side are ordered together</p>
+        </div>
     </div>
-}
-<h2>Drinks</h2>
-@foreach (IOrderItem drink in Model.Drinks)
-{
-    <div class="menu-details">
-        <h3 class="name">@drink.MockToString</h3>
-        <h3 class="price">@drink.Price</h3>
-        <h3 class="calories">@drink.Calories</h3>
-    </div>
-}
-<div class="combo-details">
-<h2>Combo</h2>
-    <p>A discount of $1 will be applied when any Entree, Drink, and Side are ordered together</p>
-</div>
+
+</form>
 
