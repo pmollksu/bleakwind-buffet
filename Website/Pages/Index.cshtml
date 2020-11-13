@@ -48,57 +48,66 @@
     </div>
 
     <div id="results">
-        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Entree"))
-        {
-            <h2>Entrees</h2>
-        }
-        @foreach (IOrderItem entree in Model.MenuItems)
-        {
-            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+        <div>
+            @if (Model.MenuItems.OfType<BleakwindBuffet.Data.Entrees.Entree>().Any())
             {
-                <div class="menu-details">
-                    <h3 class="name">@entree.MockToString</h3>
-                    <h3 class="price">@entree.Price</h3>
-                    <h3 class="calories">@entree.Calories</h3>
-                </div>
+                <h2  class="ItemTypeLabel">Entrees</h2>
             }
+            @foreach (IOrderItem entree in Model.MenuItems)
+            {
+                @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+                {
+                    <div class="menu-details">
+                        <h3 class="name">@entree.MockToString</h3>
+                        <h3 class="price">@entree.Price</h3>
+                        <h3 class="calories">@entree.Calories</h3>
+                        <h4 class="description">@entree.Description</h4>
+                    </div>
+                }
 
-        }
-        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Side"))
-        {
-            <h2>Sides</h2>
-        }
-        @foreach (IOrderItem side in Model.MenuItems)
-        {
-            @if (side is BleakwindBuffet.Data.Sides.Side)
-            {
-                <div class="menu-details">
-                    <h3 class="name">@side.MockToString</h3>
-                    <h3 class="price">@side.Price</h3>
-                    <h3 class="calories">@side.Calories</h3>
-                </div>
             }
-        }
-        @if ((Model.ItemTypes == null || Model.ItemTypes.Count() == 0) || Model.ItemTypes.Contains("Drink"))
-        {
-            <h2>Drinks</h2>
-        }
-        @foreach (IOrderItem drink in Model.MenuItems)
-        {
-            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
-            {
-                <div class="menu-details">
-                    <h3 class="name">@drink.MockToString</h3>
-                    <h3 class="price">@drink.Price</h3>
-                    <h3 class="calories">@drink.Calories</h3>
-                </div>
-            }
-        }
-
-        <div class="combo-details">
-            <h2>Combo</h2>
-            <p>A discount of $1 will be applied when any Entree, Drink, and Side are ordered together</p>
         </div>
+        <div height="100%">
+            @if (Model.MenuItems.OfType<BleakwindBuffet.Data.Sides.Side>().Any())
+            {
+                <h2 class="ItemTypeLabel">Sides</h2>
+            }
+            @foreach (IOrderItem side in Model.MenuItems)
+            {
+                @if (side is BleakwindBuffet.Data.Sides.Side)
+                {
+                    <div class="menu-details">
+                        <h3 class="name">@side.MockToString</h3>
+                        <h3 class="price">@side.Price</h3>
+                        <h3 class="calories">@side.Calories</h3>
+                        <h4 class="description">@side.Description</h4>
+                    </div>
+
+                }
+            }
+        </div>
+        <div height="100%">
+            @if (Model.MenuItems.OfType<BleakwindBuffet.Data.Drinks.Drink>().Any())
+            {
+                <h2  class="ItemTypeLabel">Drinks</h2>
+            }
+            @foreach (IOrderItem drink in Model.MenuItems)
+            {
+                @if (drink is BleakwindBuffet.Data.Drinks.Drink)
+                {
+                    <div class="menu-details">
+                        <h3 class="name">@drink.MockToString</h3>
+                        <h3 class="price">@drink.Price</h3>
+                        <h3 class="calories">@drink.Calories</h3>
+                        <h4 class="description">@drink.Description</h4>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="combo-details">
+        <h2>Combo</h2>
+        <p>A discount of $1 will be applied when any Entree, Drink, and Side are ordered together</p>
     </div>
 
 </form>

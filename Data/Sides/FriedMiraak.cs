@@ -68,5 +68,13 @@ namespace BleakwindBuffet.Data.Sides
         {
             return Size + " Fried Miraak";
         }
+
+        /// <summary>
+        /// Description of the side
+        /// </summary>
+        public string Description
+        {
+            get => "Perfectly prepared hash brown pancakes.";
+        }
     }
 }

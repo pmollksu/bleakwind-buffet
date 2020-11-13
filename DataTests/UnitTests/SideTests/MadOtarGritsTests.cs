@@ -157,5 +157,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             mad.Size = size;
             Assert.Equal(name, mad.ToString());
         }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            var mad = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", mad.Description);
+        }
     }
 }

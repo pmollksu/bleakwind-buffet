@@ -156,5 +156,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             wf.Size = size;
             Assert.Equal(name, wf.ToString());
         }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            var wf = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", wf.Description);
+        }
     }
 }

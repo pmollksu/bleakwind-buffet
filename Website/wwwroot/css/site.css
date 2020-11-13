@@ -29,6 +29,10 @@ a {
    font-size: 23px;
 }
 
+
+.ItemTypeLabel {
+    text-align: center;
+}
 .menu-details{
     display: flex;
     flex-direction: row;
@@ -36,7 +40,9 @@ a {
     align-items: flex-start;
     min-height: 30px;
     padding: 5px;
-    border-bottom: 1px solid darkslategray;
+    border-bottom: 1px solid gray;
+    flex-flow: wrap;
+
 
 }
 
@@ -49,6 +55,8 @@ body{
 
     
 }
+
+
 
 
 
@@ -66,7 +74,7 @@ body{
 .calories {
     font-size: 20px;
     color: darkslategray;
-    align-self: baseline;
+    align-self: baseline;  
 }
 
 .price{
@@ -78,16 +86,21 @@ body{
     
 }
 
+.description {
+    font-size: 15px;
+    color: darkslategray;
+    flex-flow: column wrap;
+    width: 100%;
+}
+
+
+
 .combo-details{
     font-size: 20px;
     text-align: center;
 }
 
-form#menu {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto auto;
-}
+
 
 #filters {
     display: flex;
@@ -103,6 +116,22 @@ form#menu {
     #filters h4 {
         margin-bottom: 0.2rem;
     }
+
+#results{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+@media (max-width: 490px) {
+    #results{
+        flex-direction: column;
+    }
+    .calories, .price{
+        width: 100%;
+    }
+}
 
 
 /* Sticky footer styles

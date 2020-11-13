@@ -42,5 +42,13 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Thugs T-Bone";
         }
+
+        /// <summary>
+        /// Description of the entree
+        /// </summary>
+        public string Description
+        {
+            get => "Juicy T-Bone, not much else to say.";
+        }
     }
 }

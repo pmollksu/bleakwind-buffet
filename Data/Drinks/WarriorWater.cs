@@ -77,5 +77,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return Size +  " Warrior Water";
         }
+
+        /// <summary>
+        /// Description of the drink
+        /// </summary>
+        public string Description
+        {
+            get => "It’s water. Just water.";
+        }
     }
 }
